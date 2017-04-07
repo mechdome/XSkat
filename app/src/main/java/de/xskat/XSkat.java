@@ -21,6 +21,7 @@ package de.xskat;
 import java.util.Date;
 import java.util.Locale;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -49,6 +50,8 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
+import com.mechdome.aboutmechdome.AboutMechDomeActivity;
+
 public class XSkat extends Activity {
 
     // Don't try this at home, kids!
@@ -72,7 +75,11 @@ public class XSkat extends Activity {
         readPrefs();
         renderCards();
         main();
+        ActionBar actionBar = getActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -140,6 +147,14 @@ public class XSkat extends Activity {
             sort2[0] ^= 1;
             initscr(0, 1);
             return true;
+        // Respond to the action bar's Up/Home button
+        case android.R.id.home:
+            //Write your logic here
+            this.finish();
+            return true;
+        case R.id.menuAboutMD:
+                startActivity(new Intent(this, AboutMechDomeActivity.class));
+                return true;
         default:
             return super.onOptionsItemSelected(item);
         }
