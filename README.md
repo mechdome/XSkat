@@ -1,6 +1,2 @@
 # xskat-android
-A free android app for the German card game "Skat" by Gunter Gerhardt (http://www.xskat.de/android.html).
-
-This is repackaged version for f-droid (https://f-droid.org).
-
-
+A free iOS app for the German card game "Skat" by MechDome, Inc (http://www.mechdome.com).
