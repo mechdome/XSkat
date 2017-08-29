@@ -23,5 +23,5 @@ android {
 }
 
 dependencies {
-    compile 'com.mechdome:MechDome-About:0.3'
+    compile 'com.mechdome:MechDome-About:1.4'
 }
