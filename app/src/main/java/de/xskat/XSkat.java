@@ -75,9 +75,6 @@ public class XSkat extends Activity {
         readPrefs();
         renderCards();
         main();
-        ActionBar actionBar = getActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -119,44 +116,39 @@ public class XSkat extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-        case R.id.menuAbout:
-            di_copyr();
-            return true;
-        case R.id.menuOptions:
-            setSelected(R.id.buttonStaerkePP + strateg[0]);
-            setSelected(R.id.buttonSpracheDE + currLang);
-            if (prot1.stiche[0][0] != 0 || prot1.stiche[0][1] != 0)
-                setText(R.id.buttonOptionsListe, TE(XT_Protokoll));
-            else
-                setText(R.id.buttonOptionsListe, TE(XT_Liste));
-            setGone(R.id.mainScreen);
-            setGone(R.id.dialogProto);
-            setGone(R.id.dialogListe);
-            setGone(R.id.dialogLoeschen);
-            setDialogsGone();
-            setVisible(R.id.dialogOptions);
-            setVisible(R.id.dialogScreen);
-            return true;
-        case R.id.menuLastTrick:
-            phase = LETZTERSTICH;
-            drawcard(0, prot2.stiche[stich - 2][0], 3, -1);
-            drawcard(0, prot2.stiche[stich - 2][1], 2, -1);
-            drawcard(0, prot2.stiche[stich - 2][2], 4, -1);
-            return true;
-        case R.id.menuSort:
-            sort2[0] ^= 1;
-            initscr(0, 1);
-            return true;
-        // Respond to the action bar's Up/Home button
-        case android.R.id.home:
-            //Write your logic here
-            this.finish();
-            return true;
-        case R.id.menuAboutMD:
+            case R.id.menuAbout:
+                di_copyr();
+                return true;
+            case R.id.menuOptions:
+                setSelected(R.id.buttonStaerkePP + strateg[0]);
+                setSelected(R.id.buttonSpracheDE + currLang);
+                if (prot1.stiche[0][0] != 0 || prot1.stiche[0][1] != 0)
+                    setText(R.id.buttonOptionsListe, TE(XT_Protokoll));
+                else
+                    setText(R.id.buttonOptionsListe, TE(XT_Liste));
+                setGone(R.id.mainScreen);
+                setGone(R.id.dialogProto);
+                setGone(R.id.dialogListe);
+                setGone(R.id.dialogLoeschen);
+                setDialogsGone();
+                setVisible(R.id.dialogOptions);
+                setVisible(R.id.dialogScreen);
+                return true;
+            case R.id.menuLastTrick:
+                phase = LETZTERSTICH;
+                drawcard(0, prot2.stiche[stich - 2][0], 3, -1);
+                drawcard(0, prot2.stiche[stich - 2][1], 2, -1);
+                drawcard(0, prot2.stiche[stich - 2][2], 4, -1);
+                return true;
+            case R.id.menuSort:
+                sort2[0] ^= 1;
+                initscr(0, 1);
+                return true;
+            case R.id.menuAboutMD:
                 startActivity(new Intent(this, AboutMechDomeActivity.class));
                 return true;
-        default:
-            return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
