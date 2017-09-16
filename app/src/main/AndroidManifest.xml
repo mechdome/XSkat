@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="md_remove_ads" android:value="de.xskat.MechDomeAd" />
     </application>
 
 </manifest>
